@@ -1,39 +1,20 @@
-# Clay Seal
+<p align="center"><img  width="653" height="180" alt="logo" align="center" src="https://github.com/user-attachments/assets/ab96a22c-e257-45d9-8a27-3c04033479e5" /></p>
 
-Identity and permissions for AI agents, checked at runtime.
+<h2 align="center">
+  Agents change mid-task.
+Their permissions should too.
+</h2>
 
-An agent should be able to prove which agent it is, show what it is allowed to
-do right now, and let the other side verify both without a callback. That is
-what Clay Seal builds.
+#### ClaySeal enforces runtime sandboxing, checking each agent action against the task's real-time requirements instead of relying on static permissions assigned at launch.
 
-## clayseal-identity
 
-Short-lived, attested credentials for agents. A workload proves where it runs
-with real node attestation (a Google instance identity token, a Kubernetes
-projected service-account token, or an AWS instance identity document). It
-receives a SPIFFE identity as a JWT-SVID, or an X.509-SVID for mTLS, bound to a
-key it holds. Alongside the identity it carries a capability token it can narrow
-for a single task and hand to a sub-agent. A server verifies all of it offline.
+[clayseal-identity](https://github.com/clayseal/clayseal-identity) is now open source – Give your agents a real, cryptographically attested identity.
 
-```bash
-pip install clayseal-identity
-```
+Try out our all new ClaySeal prompt-injection [Capture The Flag Lab](https://lab.clayseal.com). Create sandboxes to protect your flags or try and exploit other people's agents to capture their flags.
 
-Repo: [clayseal/clayseal-identity](https://github.com/clayseal/clayseal-identity)
+## Learn More
 
-## @clayseal/verify
-
-The JavaScript verifier for the same credentials. Add it to a Node MCP server or
-an OpenClaw tool plugin to check an agent's credential and authorize each tool
-call against its capability token. A stolen token without the agent's key
-authorizes nothing.
-
-```bash
-npm install @clayseal/verify
-```
-
-## Links
-
-- Site: [clayseal.com](https://clayseal.com)
+- Website: [clayseal.com](https://clayseal.com)
+- Lab: [lab.clayseal.com](https://lab.clayseal.com)
 - Package: [pypi.org/project/clayseal-identity](https://pypi.org/project/clayseal-identity/)
 - Questions: open a discussion on the identity repo
